@@ -48,6 +48,9 @@ fi
 echo "running 'rsync -avh --delete ${EXCLUDES[*]} $GITHUB_WORKSPACE/${SOURCE}${f} $TEMP/$TARGET'"
 rsync -avh --delete "${EXCLUDES[@]}" "$GITHUB_WORKSPACE/${SOURCE}${f}" "$TEMP/$TARGET"
 
+ls
+git status --porcelain
+
 # Success finish early if there are no changes
 # i.e. up to date and branch exists
 if [ -z "$(git status --porcelain)" ] && [ -n "$LS_REMOTE" ]; then
