@@ -50,14 +50,6 @@ rsync -avh --delete "${EXCLUDES[@]}" "$GITHUB_WORKSPACE/${SOURCE}${f}" "$TEMP/$T
 
 echo "completed rsync"
 
-echo "Present files in folder"
-
-echo "$(ls)"
-
-echo "git status porcelain"
-
-echo "$(git status --porcelain)"
-
 # Success finish early if there are no changes
 # i.e. up to date and branch exists
 if [ -z "$(git status --porcelain)" ] && [ -n "$LS_REMOTE" ]; then
