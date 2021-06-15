@@ -34,7 +34,7 @@ cd "$TEMP"
 LS_REMOTE="$(git ls-remote --heads origin refs/heads/"$BRANCH")"
 if [[ -n "$LS_REMOTE" ]]; then
   echo "Checking out $BRANCH from origin."
-  git checkout "$BRANCH"
+  git checkout "$BRANCH" --
 else
   echo "$BRANCH does not exist on origin, creating new branch."
   git checkout -b "$BRANCH"
